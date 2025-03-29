@@ -59,6 +59,20 @@
           "type": "registry:hook"
         }
       ]
+    },
+    {
+      "name": "hono-setup",
+      "type": "registry:block",
+      "title": "Hono Setup",
+      "description": "setting up Hono with a simple hello world route.",
+      "dependencies": ["hono"],
+      "files": [
+        {
+          "path": "registry/new-york/hono-setup/api/[[...route]]/route.ts",
+          "type": "registry:file",
+          "target": "src/app/api/[[...route]]/route.ts"
+        }
+      ]
     }
   ]
 }

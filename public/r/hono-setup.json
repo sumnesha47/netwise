@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hono-setup",
+  "type": "registry:block",
+  "title": "Hono Setup",
+  "description": "setting up Hono with a simple hello world route.",
+  "dependencies": [
+    "hono"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/hono-setup/api/[[...route]]/route.ts",
+      "content": "import { Hono } from \"hono\";\r\nimport { handle } from \"hono/vercel\";\r\n\r\nconst app = new Hono().basePath(\"/api\");\r\n\r\napp.get(\"/hello\", (c) => {\r\n  return c.json({\r\n    message: \"Hello Next.js!\",\r\n  });\r\n});\r\n\r\nexport const GET = handle(app);\r\nexport const POST = handle(app);\r\nexport const PUT = handle(app);\r\nexport const DELETE = handle(app);\r\nexport const PATCH = handle(app);\r\n",
+      "type": "registry:file",
+      "target": "src/app/api/[[...route]]/route.ts"
+    }
+  ]
+}
