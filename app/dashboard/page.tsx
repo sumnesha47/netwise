@@ -10,6 +10,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import {
   SidebarInset,
@@ -51,6 +52,7 @@ export default function Page() {
             title="Hello world"
             description="A simple hello world component."
           />
+          <Button>Click me</Button>
           <main className="flex flex-col flex-1 gap-8">
             <div className="flex flex-col gap-4 border rounded-lg p-4 min-h-[450px] relative">
               <div className="flex items-center justify-between">

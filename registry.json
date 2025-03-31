@@ -18,6 +18,62 @@
       ]
     },
     {
+      "name": "icons",
+      "type": "registry:ui",
+      "title": "Icons",
+      "description": "An icon component for the app.",
+      "files": [
+        {
+          "path": "registry/ui/icons.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "file-upload",
+      "description": "A file upload component with drag and drop support.",
+      "title": "File Upload",
+      "type": "registry:ui",
+      "registryDependencies": ["input", "button"],
+      "dependencies": ["react-icons", "react-dropzone", "lucide-react"],
+      "files": [
+        {
+          "path": "registry/ui/file-upload.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "location-input",
+      "description": "A location input component with Google Maps integration.",
+      "title": "Location Input",
+      "type": "registry:ui",
+      "registryDependencies": [
+        "input",
+        "button",
+        "scroll-area",
+        "command",
+        "popover"
+      ],
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "registry/ui/location-input.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/files/countries.json",
+          "type": "registry:file",
+          "target": "data/countries.json"
+        },
+        {
+          "path": "registry/files/states.json",
+          "type": "registry:file",
+          "target": "data/states.json"
+        }
+      ]
+    },
+    {
       "name": "hello-world",
       "type": "registry:component",
       "title": "Hello World",
