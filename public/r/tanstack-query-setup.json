@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tanstack-query-setup",
+  "type": "registry:block",
+  "title": "Tanstack Query Setup",
+  "description": "",
+  "dependencies": [
+    "@tanstack/react-query"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/tanstack-query-setup/query-provider.tsx",
+      "content": "// In Next.js, this file would be called: app/providers.tsx\r\n\"use client\";\r\n\r\n// Since QueryClientProvider relies on useContext under the hood, we have to put 'use client' on top\r\nimport {\r\n  isServer,\r\n  QueryClient,\r\n  QueryClientProvider,\r\n} from \"@tanstack/react-query\";\r\n\r\nfunction makeQueryClient() {\r\n  return new QueryClient({\r\n    defaultOptions: {\r\n      queries: {\r\n        // With SSR, we usually want to set some default staleTime\r\n        // above 0 to avoid refetching immediately on the client\r\n        staleTime: 60 * 1000,\r\n      },\r\n    },\r\n  });\r\n}\r\n\r\nlet browserQueryClient: QueryClient | undefined = undefined;\r\n\r\nfunction getQueryClient() {\r\n  if (isServer) {\r\n    // Server: always make a new query client\r\n    return makeQueryClient();\r\n  } else {\r\n    // Browser: make a new query client if we don't already have one\r\n    // This is very important, so we don't re-make a new client if React\r\n    // suspends during the initial render. This may not be needed if we\r\n    // have a suspense boundary BELOW the creation of the query client\r\n    if (!browserQueryClient) browserQueryClient = makeQueryClient();\r\n    return browserQueryClient;\r\n  }\r\n}\r\n\r\ninterface QueryProviderProps {\r\n  children: React.ReactNode;\r\n}\r\n\r\nexport const QueryProvider = ({ children }: QueryProviderProps) => {\r\n  // NOTE: Avoid useState when initializing the query client if you don't\r\n  //       have a suspense boundary between this and the code that may\r\n  //       suspend because React will throw away the client on the initial\r\n  //       render if it suspends and there is no boundary\r\n  const queryClient = getQueryClient();\r\n\r\n  return (\r\n    <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>\r\n  );\r\n};\r\n",
+      "type": "registry:component"
+    }
+  ]
+}
