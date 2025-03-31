@@ -4,6 +4,20 @@
   "homepage": "https://netwise.co.in",
   "items": [
     {
+      "name": "password-input",
+      "type": "registry:ui",
+      "registryDependencies": ["input", "button"],
+      "dependencies": ["react-icons"],
+      "title": "Password Input",
+      "description": "A password input component with visibility toggle.",
+      "files": [
+        {
+          "path": "registry/ui/password-input.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "hello-world",
       "type": "registry:component",
       "title": "Hello World",
@@ -71,6 +85,19 @@
           "path": "registry/new-york/hono-setup/api/[[...route]]/route.ts",
           "type": "registry:file",
           "target": "src/app/api/[[...route]]/route.ts"
+        }
+      ]
+    },
+    {
+      "name": "tanstack-query-setup",
+      "type": "registry:block",
+      "title": "Tanstack Query Setup",
+      "description": "",
+      "dependencies": ["@tanstack/react-query"],
+      "files": [
+        {
+          "path": "registry/new-york/tanstack-query-setup/query-provider.tsx",
+          "type": "registry:component"
         }
       ]
     }
