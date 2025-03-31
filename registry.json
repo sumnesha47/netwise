@@ -44,6 +44,26 @@
       ]
     },
     {
+      "name": "phone-input",
+      "description": "A phone input component with country code selection.",
+      "title": "Phone Input",
+      "type": "registry:ui",
+      "registryDependencies": [
+        "input",
+        "button",
+        "command",
+        "popover",
+        "scroll-area"
+      ],
+      "dependencies": ["lucide-react", "react-phone-number-input"],
+      "files": [
+        {
+          "path": "registry/ui/phone-input.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "location-input",
       "description": "A location input component with Google Maps integration.",
       "title": "Location Input",
